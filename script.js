@@ -33,24 +33,43 @@
 // console.log(result)
 
 //part 4
-const test_input = [["ID", "Name", "Occupation", "Age"],
- ["42", "Bruce", "Knight", "41"],
- ["57", "Bob", "Fry Cook", "19"],
- ["63", "Blaine", "Quiz Master", "58"],
- ["98", "Bill", "Doctor’s Assistant", "26"]]
-const test_output = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
- { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
- { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
- { id: "98", name: "Bill", occupation: "Doctor’s Assistant", age: "26" }]
+// const test_input = [["ID", "Name", "Occupation", "Age"],
+//  ["42", "Bruce", "Knight", "41"],
+//  ["57", "Bob", "Fry Cook", "19"],
+//  ["63", "Blaine", "Quiz Master", "58"],
+//  ["98", "Bill", "Doctor’s Assistant", "26"]]
+// const test_output = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+//  { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+//  { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+//  { id: "98", name: "Bill", occupation: "Doctor’s Assistant", age: "26" }]
 
-const attrs = test_input.shift()
+// const attrs = test_input.shift()
 
-const result = test_input.map((el) => {
-  const obj = {}
-  attrs.forEach((attr, i) => {
-    obj[attr.toLowerCase()] = el[i]
-  })
-  return obj
-})
+// const result = test_input.map((el) => {
+//   const obj = {}
+//   attrs.forEach((attr, i) => {
+//     obj[attr.toLowerCase()] = el[i]
+//   })
+//   return obj
+// })
 
-console.log(result)
+// console.log(result)
+
+// Part 5
+function backToCSV(arr) {
+    const array = [Object.keys(arr[0])].concat(arr);
+    return array.map(it => {
+        return Object.values(it).toString();
+    }).join('\n');
+}
+
+const test_input = [
+    ["ID", "Name", "Occupation", "Age"],
+    ["42", "Bruce", "Knight", "41"],
+    ["57", "Bob", "Fry Cook", "19"],
+    ["63", "Blaine", "Quiz Master", "58"],
+    ["98", "Bill", "Doctor’s Assistant", "26"]
+];
+
+const result = backToCSV(test_input);
+console.log(result);
